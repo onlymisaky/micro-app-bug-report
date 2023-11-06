@@ -1,6 +1,6 @@
 <template>
   <micro-app name="about"
-    url="http://127.0.0.1:4322/"
+    :url='url'
     @created='created'
     @beforemount='beforemount'
     @mounted='mounted'
@@ -12,6 +12,11 @@
 <script>
 export default {
   name: 'AboutView',
+  data() {
+    return {
+      url: process.env.VUE_APP_CHILD_APP_URL,
+    }
+  },
   methods: {
     created() {
       console.log('micro-app元素被创建');
